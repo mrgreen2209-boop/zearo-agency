@@ -55,14 +55,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startScratchGame() {
-        // 2. Hidden Probability Distribution Engine Matrix
+        // ⚡ UPDATED: Aapka exact 100% Balanced Reward Distribution Logic
         const roll = Math.random() * 100;
-        if (roll <= 70) winAmount = 1;
-        else if (roll <= 80) winAmount = 3;
-        else if (roll <= 90) winAmount = 4;
-        else if (roll <= 99) winAmount = 5;
-        else winAmount = 25;
+        
+        if (roll <= 70) {
+            winAmount = 2;   // 70% chance -> ₹2 nikalne ke liye
+        } else if (roll <= 80) {
+            winAmount = 3;   // 10% chance -> ₹3 nikalne ke liye (70 se 80 ke beech)
+        } else if (roll <= 90) {
+            winAmount = 5;   // 10% chance -> ₹5 nikalne ke liye (80 se 90 ke beech)
+        } else if (roll <= 98) {
+            winAmount = 10;  // 8% chance -> ₹10 nikalne ke liye (90 se 98 ke beech)
+        } else if (roll <= 99) {
+            winAmount = 20;  // 1% chance -> ₹20 nikalne ke liye (98 se 99 ke beech)
+        } else {
+            winAmount = 25;  // 1% chance -> ₹25 nikalne ke liye (99 se 100 ke beech)
+        }
 
+        // Screen par reward dikhane ka premium text structure
         rewardDisplay.innerHTML = `
             <div class="win-text-container">
                 <h2>You Won</h2>
@@ -71,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
         
         txIdString.textContent = linkID;
+        setupCanvas(); // Canvas design ko wapas shuru karne ke liye
+    }
         setupCanvas();
     }
 
