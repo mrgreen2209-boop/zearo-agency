@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZEARO AGENCY - Scratch & Win</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="header">
+            <h1>🎉 ZEARO AGENCY</h1>
+            <p>Thank You For Recharging ❤️</p>
+        </header>
+
+        <div class="card-container">
+            <div id="already-used-screen" class="status-screen hidden">
+                <div class="status-icon">❌</div>
+                <h2>Scratch Card Already Used</h2>
+                <p>Aap is browser me pehle hi scratch kar chuke hain.</p>
+                <div class="saved-tx-box">
+                    <span>Transaction ID:</span>
+                    <strong id="saved-tx-id">-</strong>
+                </div>
+            </div>
+
+            <div id="scratch-card-frame" class="scratch-card">
+                <div class="reward-layer">
+                    <div id="reward-output"></div>
+                    <div class="tx-box">
+                        <span>TXID:</span> <strong id="tx-id-display"></strong>
+                    </div>
+                </div>
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Secure WhatsApp Reward Link</p>
+            <small>© 2026 Zearo Agency. All rights reserved.</small>
+        </footer>
+    </div>
+
+    <div id="nudge-toast" class="toast">Are you scratching your scratch card? 😅</div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
