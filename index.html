@@ -28,7 +28,8 @@
             <div class="scratch-card-box">
                 <div class="reward-surface">
                     <div id="reward-display">
-                        </div>
+                        <div class="loading-text">🔒 Checking secure link validation...</div>
+                    </div>
                 </div>
                 <canvas id="scratch-canvas"></canvas>
             </div>
@@ -53,7 +54,7 @@
                 <span class="tx-icon">📋</span>
                 <span class="tx-title">TRANSACTION ID</span>
             </div>
-            <div id="tx-id-string" class="tx-value">582341451214MR20260524</div>
+            <div id="tx-id-string" class="tx-value">-------</div>
         </div>
 
         <div class="footer-greeting">
@@ -63,7 +64,76 @@
     </div>
 
     <div id="scratch-toast" class="toast-popup">Are you scratching your scratch card? 😅</div>
-    
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZEARO AGENCY - Scratch & Win</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="voucher-container">
+        
+        <div class="decor-stars-left">⭐<br>⭐</div>
+        <div class="decor-ribbon-right">🎉<br>✨</div>
+
+        <header class="header">
+            <h1 class="brand-title">ZEARO AGENCY</h1>
+            <p class="sub-title">Thank You For Recharging ❤️</p>
+        </header>
+
+        <div class="card-outer-border">
+            
+            <div id="already-scratched-badge" class="scratched-badge hidden">
+                SCRATCH CARD ALREADY SCRATCHED
+            </div>
+
+            <div class="scratch-card-box">
+                <div class="reward-surface">
+                    <div id="reward-display">
+                        <div class="loading-text">🔒 Checking secure link validation...</div>
+                    </div>
+                </div>
+                <canvas id="scratch-canvas"></canvas>
+            </div>
+
+            <div class="promo-banner">
+                RECHARGE JARE AND 1 RS - 10000 KE CASH BACK WIN KARE
+            </div>
+        </div>
+
+        <div class="how-to-play-box">
+            <span class="btn-orange">HOW TO PLAY</span>
+            <div class="instruction-row">
+                <span class="icon">👆</span> <span>Scratch the card above</span>
+            </div>
+            <div class="instruction-row">
+                <span class="icon">🎁</span> <span>Win exciting rewards</span>
+            </div>
+        </div>
+
+        <div class="tx-container">
+            <div class="tx-header-row">
+                <span class="tx-icon">📋</span>
+                <span class="tx-title">TRANSACTION ID</span>
+            </div>
+            <div id="tx-id-string" class="tx-value">-------</div>
+        </div>
+
+        <div class="footer-greeting">
+            <span>✨</span> <span class="luck-text">Good Luck!</span> <span>✨</span>
+        </div>
+
+    </div>
+
+    <div id="scratch-toast" class="toast-popup">Are you scratching your scratch card? 😅</div>
     <canvas id="confetti-canvas"></canvas>
 
     <script src="script.js"></script>
