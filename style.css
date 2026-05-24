@@ -20,14 +20,14 @@ body {
     background: #fffdf9;
     width: 100%;
     max-width: 410px;
-    border-radius: 32px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-    padding: 35px 24px 25px 24px;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    padding: 35px 20px 25px 20px;
     position: relative;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
     border: 4px solid #ffffff;
 }
 
@@ -36,7 +36,7 @@ body {
     top: 25px;
     left: 25px;
     color: #ffc107;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1.2;
     text-align: left;
 }
@@ -44,7 +44,7 @@ body {
     position: absolute;
     top: 25px;
     right: 25px;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 1.2;
     text-align: right;
 }
@@ -60,7 +60,7 @@ body {
     font-size: 1.05rem;
     color: #1a237e;
     font-weight: 700;
-    margin-top: 8px;
+    margin-top: 6px;
 }
 
 .card-outer-border {
@@ -68,7 +68,7 @@ body {
     background: linear-gradient(135deg, #ffa000 0%, #ff6f00 100%);
     border-radius: 24px;
     padding: 10px;
-    box-shadow: inset 0 2px 6px rgba(255,255,255,0.4), 0 8px 20px rgba(213,0,0,0.15);
+    box-shadow: inset 0 2px 6px rgba(255,255,255,0.4), 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .scratched-badge {
@@ -94,8 +94,7 @@ body {
     aspect-ratio: 1.45 / 1;
     border-radius: 16px;
     overflow: hidden;
-    background: #e0e0e0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    background: #ffffff;
 }
 
 .reward-surface {
@@ -109,7 +108,6 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1;
-    padding: 15px;
 }
 
 .loading-text {
@@ -119,7 +117,7 @@ body {
 }
 
 .win-text-container h2 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #666;
     text-transform: uppercase;
     font-weight: 700;
@@ -142,13 +140,11 @@ body {
     color: #c62828;
     font-weight: 800;
     margin-bottom: 5px;
-    text-transform: uppercase;
 }
 .lockout-text p {
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     color: #444;
     font-weight: 600;
-    line-height: 1.4;
 }
 
 #scratch-canvas {
@@ -164,23 +160,22 @@ body {
 
 .promo-banner {
     color: #ffffff;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 800;
-    padding: 10px 5px 2px 5px;
-    line-height: 1.3;
+    padding: 12px 5px 4px 5px;
+    line-height: 1.4;
     text-transform: uppercase;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.1px;
 }
 
+/* --- Fixed How To Play Box Structure --- */
 .how-to-play-box {
-    border: 2px dashed #ffe082;
+    border: 2px dashed #ffb300;
     border-radius: 16px;
-    padding: 15px;
+    padding: 22px 12px 14px 12px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 5px;
+    margin-top: 8px;
+    background: #fffdf9;
 }
 .btn-orange {
     position: absolute;
@@ -191,20 +186,36 @@ body {
     color: white;
     font-size: 0.75rem;
     font-weight: 800;
-    padding: 3px 16px;
+    padding: 3px 18px;
     border-radius: 50px;
-}
-.instruction-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.95rem;
-    color: #37474f;
-    font-weight: 600;
-    text-align: left;
-    padding-left: 15%;
+    box-shadow: 0 3px 8px rgba(230,81,0,0.2);
 }
 
+/* Perfect 2-Column Responsive Layout Grid matching your screenshot */
+.stats-grid {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 10px;
+}
+.stats-column {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.stat-line {
+    font-size: 0.82rem;
+    color: #212121;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.stat-line strong {
+    font-weight: 700;
+    color: #000000;
+}
+
+/* --- Transaction Layout Box --- */
 .tx-container {
     background: #fff3e0;
     border-radius: 14px;
@@ -224,10 +235,10 @@ body {
     letter-spacing: 0.5px;
 }
 .tx-value {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 800;
     color: #d84315;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.3px;
 }
 
 .footer-greeting {
@@ -255,9 +266,8 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.35s ease;
     z-index: 99;
-    white-space: nowrap;
 }
 .toast-popup.show { transform: translateX(-50%) translateY(0); }
 #confetti-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 90; }
