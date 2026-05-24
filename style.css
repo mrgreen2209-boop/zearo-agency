@@ -1,3 +1,4 @@
+/* --- Core Resets & Fonts --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -16,21 +17,23 @@ body {
     overflow-x: hidden;
 }
 
+/* --- Premium Cream White Voucher Surface Container --- */
 .voucher-container {
     background: #fffdf9;
     width: 100%;
     max-width: 410px;
     border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    padding: 35px 20px 25px 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    padding: 35px 22px 25px 22px;
     position: relative;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
     border: 4px solid #ffffff;
 }
 
+/* --- Top Festive Particle Graphics --- */
 .decor-stars-left {
     position: absolute;
     top: 25px;
@@ -49,26 +52,28 @@ body {
     text-align: right;
 }
 
+/* --- Header Typography --- */
 .brand-title {
-    font-size: 2.6rem;
+    font-size: 2.7rem;
     font-weight: 900;
     color: #e64a19;
     letter-spacing: -0.5px;
     line-height: 1.1;
 }
 .sub-title {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: #1a237e;
     font-weight: 700;
     margin-top: 6px;
 }
 
+/* --- Orange Border Scratch Card Frame Container --- */
 .card-outer-border {
     position: relative;
-    background: linear-gradient(135deg, #ffa000 0%, #ff6f00 100%);
+    background: #f57c00;
     border-radius: 24px;
-    padding: 10px;
-    box-shadow: inset 0 2px 6px rgba(255,255,255,0.4), 0 8px 20px rgba(0,0,0,0.1);
+    padding: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .scratched-badge {
@@ -97,6 +102,7 @@ body {
     background: #ffffff;
 }
 
+/* --- Inside Reward Core Layout --- */
 .reward-surface {
     position: absolute;
     top: 0;
@@ -117,13 +123,13 @@ body {
 }
 
 .win-text-container h2 {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #666;
     text-transform: uppercase;
     font-weight: 700;
 }
 .win-text-container .cash-amt {
-    font-size: 3.4rem;
+    font-size: 3.5rem;
     font-weight: 900;
     color: #2e7d32;
     line-height: 1.1;
@@ -142,7 +148,7 @@ body {
     margin-bottom: 5px;
 }
 .lockout-text p {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: #444;
     font-weight: 600;
 }
@@ -158,24 +164,17 @@ body {
     touch-action: none;
 }
 
-.promo-banner {
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 800;
-    padding: 12px 5px 4px 5px;
-    line-height: 1.4;
-    text-transform: uppercase;
-    letter-spacing: 0.1px;
-}
-
-/* --- Fixed How To Play Box Structure --- */
+/* --- How To Play Box View Layout Structure --- */
 .how-to-play-box {
-    border: 2px dashed #ffb300;
+    border: 1.5px dashed #ffa000;
     border-radius: 16px;
-    padding: 22px 12px 14px 12px;
+    padding: 22px 15px 16px 15px;
     position: relative;
-    margin-top: 8px;
+    margin-top: 5px;
     background: #fffdf9;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .btn-orange {
     position: absolute;
@@ -184,38 +183,31 @@ body {
     transform: translateX(-50%);
     background: linear-gradient(to right, #ff6f00, #e65100);
     color: white;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 800;
-    padding: 3px 18px;
+    padding: 3px 20px;
     border-radius: 50px;
     box-shadow: 0 3px 8px rgba(230,81,0,0.2);
+    letter-spacing: 0.2px;
 }
 
-/* Perfect 2-Column Responsive Layout Grid matching your screenshot */
-.stats-grid {
+.instruction-row {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
     text-align: left;
-    gap: 10px;
+    padding-left: 20px;
 }
-.stats-column {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+.instruction-row .icon {
+    font-size: 1.15rem;
 }
-.stat-line {
-    font-size: 0.82rem;
-    color: #212121;
-    font-weight: 500;
-    white-space: nowrap;
-}
-.stat-line strong {
-    font-weight: 700;
-    color: #000000;
+.instruction-row .text {
+    font-size: 0.92rem;
+    color: #333333;
+    font-weight: 600;
 }
 
-/* --- Transaction Layout Box --- */
+/* --- Transaction ID Container Layout --- */
 .tx-container {
     background: #fff3e0;
     border-radius: 14px;
@@ -223,7 +215,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px;
+    gap: 4px;
 }
 .tx-header-row {
     display: flex;
@@ -251,9 +243,10 @@ body {
     font-weight: 800;
     font-style: italic;
     color: #ff6f00;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 
+/* Toast Nudges */
 .toast-popup {
     position: fixed;
     bottom: 25px;
