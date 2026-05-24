@@ -6,10 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const badgeAlert = document.getElementById("already-scratched-badge");
     const toastPopup = document.getElementById("scratch-toast");
 
-    // ⚠️ STEP 2 ME JO WEB APP URL MILA THA use niche double quotes ke andar paste karein
+    // Sahi URL check secured
     const API_URL = "https://script.google.com/macros/s/AKfycbw5cNH3G7ulT1kboCSQihVJsQl1GDgNaZei0D1B_HXwUK7Hy2iaYJWcGnNSQ6hqjyTD/exec";
 
-    // URL parameter se ID read karna (?id=Z-001)
     const urlParams = new URLSearchParams(window.location.search);
     const linkID = urlParams.get('id');
 
@@ -18,29 +17,31 @@ document.addEventListener("DOMContentLoaded", () => {
     let scratchCount = 0;
     let winAmount = 1;
 
-    // Agar link me koi unique id hi na pass ki ho
     if (!linkID) {
         showLockoutScreen("INVALID LINK ❌", "Kripya ek valid unique secure link open karein.");
         return;
     }
 
-    // 1. Google Sheet Database se real-time unique validation verify karna
-    fetch(`${API_URL}?id=${linkID}`)
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === "ALREADY_USED") {
-                showLockoutScreen("LINK ALREADY USED ❌", "Yeh unique reward link pehle hi use kiya ja chuka hai aur ab expire ho gaya hai.");
-            } else if (data.status === "NOT_FOUND") {
-                showLockoutScreen("ID NOT FOUND ❌", "Yeh Link ID hamare reward database me active nahi hai.");
-            } else {
-                // Link valid hai! Game ko shuru karo
-                startScratchGame();
-            }
-        })
-        .catch(err => {
-            console.error(err);
-            showLockoutScreen("CONNECTION ERROR ⚠️", "Database se sampark nahi ho pa raha hai. Apna internet connection check karein.");
-        });
+    // 1. FIXED: Google Sheet validation check with redirect mode handled
+    fetch(`${API_URL}?id=${linkID}`, {
+        method: "GET",
+        mode: "cors", 
+        headers: { "Content-Type": "text/plain" }
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "ALREADY_USED") {
+            showLockoutScreen("LINK ALREADY USED ❌", "Yeh unique reward link pehle hi use kiya ja chuka hai aur ab expire ho gaya hai.");
+        } else if (data.status === "NOT_FOUND") {
+            showLockoutScreen("ID NOT FOUND ❌", "Yeh Link ID hamare reward database me active nahi hai.");
+        } else if (data.status === "VALID") {
+            startScratchGame();
+        }
+    })
+    .catch(err => {
+        console.error("Fetch Error:", err);
+        showLockoutScreen("CONNECTION ERROR ⚠️", "Database se sahi sampark nahi mila. Kripya ek baar page refresh karein.");
+    });
 
     function showLockoutScreen(title, msg) {
         badgeAlert.classList.remove("hidden");
@@ -54,8 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startScratchGame() {
-        // 2. Hidden Weighted Reward Logic
-        // 70% -> ₹1 | 10% -> ₹3 | 10% -> ₹4 | 9% -> ₹5 | 1% -> ₹25
+        // 2. Hidden Reward Probabilities System
         const roll = Math.random() * 100;
         if (roll <= 70) winAmount = 1;
         else if (roll <= 80) winAmount = 3;
@@ -71,8 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
         
         txIdString.textContent = linkID;
-
-        // Canvas overlay initialize karein
         setupCanvas();
     }
 
@@ -80,11 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.width = canvas.parentElement.offsetWidth;
         canvas.height = canvas.parentElement.offsetHeight;
         
-        // Premium Silver Metallic Matte Texture
         ctx.fillStyle = '#b0bec5';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Real noise grain effect strings
         ctx.fillStyle = 'rgba(255,255,255,0.22)';
         for (let i = 0; i < 400; i++) {
             ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 70 + 20, 1.2);
@@ -94,14 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 40 + 10, 1);
         }
 
-        // Texture Ke upar ka text design
         ctx.font = "900 21px 'Poppins'";
         ctx.fillStyle = "#455a64";
         ctx.textAlign = "center";
         ctx.fillText("MORE RECHARGE", canvas.width / 2, canvas.height / 2 - 5);
         ctx.fillText("MORE WIN", canvas.width / 2, canvas.height / 2 + 25);
 
-        // Touch & Click Bindings
         canvas.addEventListener("mousedown", () => isDrawing = true);
         canvas.addEventListener("mousemove", processScratch);
         window.addEventListener("mouseup", () => { isDrawing = false; checkClearProgress(); });
@@ -123,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ctx.globalCompositeOperation = 'destination-out';
         ctx.beginPath();
-        ctx.arc(x, y, 24; // Smooth brush radius
+        ctx.arc(x, y, 24, 0, Math.PI * 2);
         ctx.fill();
 
         scratchCount++;
@@ -142,17 +136,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (imgData[i] === 0) clearedPixels++;
         }
 
-        // Agar 40% se zyada card saaf ho chuka hai
         if ((clearedPixels / (imgData.length / 4)) * 100 > 40) {
             isScratchedCompletely = true;
             canvas.style.transition = "opacity 0.3s ease-out";
             canvas.style.opacity = 0;
             setTimeout(() => canvas.remove(), 300);
 
-            // ⚡ GOOGLE SHEET KO UPDATE KARNA (ID KO BURN YA EXPIRE KARNA)
-            fetch(`${API_URL}?id=${linkID}&action=burn`)
-                .then(res => res.json())
-                .then(d => console.log("Link marked as USED in database."));
+            // ⚡ Burn Request to Google Sheets with No-Cors handler
+            fetch(`${API_URL}?id=${linkID}&action=burn`, { method: "GET", mode: "no-cors" })
+                .then(() => console.log("Link burned securely."))
+                .catch(e => console.error("Error burning ID:", e));
 
             triggerConfetti();
         }
