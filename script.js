@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const badgeAlert = document.getElementById("already-scratched-badge");
     const toastPopup = document.getElementById("scratch-toast");
 
-    // Sahi URL check secured
+    // Google Apps Script API URL Connection Link
     const API_URL = "https://script.google.com/macros/s/AKfycbw5cNH3G7ulT1kboCSQihVJsQl1GDgNaZei0D1B_HXwUK7Hy2iaYJWcGnNSQ6hqjyTD/exec";
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // 1. FIXED: Google Sheet validation check with redirect mode handled
+    // 1. Google Sheet Validation Check
     fetch(`${API_URL}?id=${linkID}`, {
         method: "GET",
         mode: "cors", 
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startScratchGame() {
-        // 2. Hidden Reward Probabilities System
+        // 2. Hidden Probability Distribution Logic Engine
         const roll = Math.random() * 100;
         if (roll <= 70) winAmount = 1;
         else if (roll <= 80) winAmount = 3;
@@ -78,9 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.width = canvas.parentElement.offsetWidth;
         canvas.height = canvas.parentElement.offsetHeight;
         
+        // Render Premium Matte Silver Background Cover
         ctx.fillStyle = '#b0bec5';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+        // Micro Grain Texture Filter Lines
         ctx.fillStyle = 'rgba(255,255,255,0.22)';
         for (let i = 0; i < 400; i++) {
             ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 70 + 20, 1.2);
@@ -90,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 40 + 10, 1);
         }
 
+        // Texture Overlay Content Structure
         ctx.font = "900 21px 'Poppins'";
         ctx.fillStyle = "#455a64";
         ctx.textAlign = "center";
@@ -142,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             canvas.style.opacity = 0;
             setTimeout(() => canvas.remove(), 300);
 
-            // ⚡ Burn Request to Google Sheets with No-Cors handler
+            // Burn link parameter inside database sheet
             fetch(`${API_URL}?id=${linkID}&action=burn`, { method: "GET", mode: "no-cors" })
                 .then(() => console.log("Link burned securely."))
                 .catch(e => console.error("Error burning ID:", e));
