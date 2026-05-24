@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let isDrawing = false;
     let isScratchedCompletely = false;
     let scratchCount = 0;
-    let winAmount = 1;
+    let winAmount = 2;
 
     if (!linkID) {
         showLockoutScreen("INVALID LINK ❌", "Kripya ek valid unique secure link open karein.");
@@ -55,21 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function startScratchGame() {
-        // ⚡ UPDATED: Aapka exact 100% Balanced Reward Distribution Logic
+        // ⚡ FIXED LOGIC MATRIX: Exact 100% Weighted Reward Probabilities
         const roll = Math.random() * 100;
         
         if (roll <= 70) {
-            winAmount = 2;   // 70% chance -> ₹2 nikalne ke liye
+            winAmount = 2;   // 70% chance -> ₹2
         } else if (roll <= 80) {
-            winAmount = 3;   // 10% chance -> ₹3 nikalne ke liye (70 se 80 ke beech)
+            winAmount = 3;   // 10% chance -> ₹3 (70 se 80)
         } else if (roll <= 90) {
-            winAmount = 5;   // 10% chance -> ₹5 nikalne ke liye (80 se 90 ke beech)
+            winAmount = 5;   // 10% chance -> ₹5 (80 se 90)
         } else if (roll <= 98) {
-            winAmount = 10;  // 8% chance -> ₹10 nikalne ke liye (90 se 98 ke beech)
+            winAmount = 10;  // 8% chance -> ₹10 (90 se 98)
         } else if (roll <= 99) {
-            winAmount = 20;  // 1% chance -> ₹20 nikalne ke liye (98 se 99 ke beech)
+            winAmount = 20;  // 1% chance -> ₹20 (98 se 99)
         } else {
-            winAmount = 25;  // 1% chance -> ₹25 nikalne ke liye (99 se 100 ke beech)
+            winAmount = 25;  // 1% chance -> ₹25 (99 se 100)
         }
 
         // Screen par reward dikhane ka premium text structure
@@ -81,9 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>`;
         
         txIdString.textContent = linkID;
-        setupCanvas(); // Canvas design ko wapas shuru karne ke liye
-    }
-        setupCanvas();
+        setupCanvas(); 
     }
 
     function setupCanvas() {
@@ -94,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ctx.fillStyle = '#b0bec5';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        // Micro High Definition Grain Texture Filter Stripes (Exactly like your sample image)
+        // Micro High Definition Grain Texture Filter Stripes
         ctx.fillStyle = 'rgba(255,255,255,0.25)';
         for (let i = 0; i < 450; i++) {
             ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 90 + 20, 1.3);
