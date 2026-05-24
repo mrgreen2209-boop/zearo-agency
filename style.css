@@ -1,3 +1,4 @@
+/* --- Global Overrides & Styling Reset --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,136 +6,265 @@
     font-family: 'Poppins', sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
+
 body {
-    background: radial-gradient(circle at center, #1a1510 0%, #0a0806 100%);
-    color: #ffffff;
+    background: #f37021 linear-gradient(135deg, #ff9800 0%, #f37021 100%);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 15px;
     overflow-x: hidden;
 }
-.app-container {
+
+/* --- Premium Cream White Voucher Box --- */
+.voucher-container {
+    background: #fffdf9;
     width: 100%;
-    max-width: 420px;
+    max-width: 410px;
+    border-radius: 32px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    padding: 35px 24px 25px 24px;
+    position: relative;
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 18px;
+    border: 4px solid #ffffff;
 }
-.header h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffe082 0%, #ffb300 50%, #ffa000 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+/* --- Aesthetic Party Decors --- */
+.decor-stars-left {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    color: #ffc107;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-align: left;
 }
-.header p {
-    color: #ccb099;
-    font-size: 0.95rem;
-    margin-top: 6px;
+.decor-ribbon-right {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    text-align: right;
 }
-.card-container {
+
+/* --- Header Styling --- */
+.brand-title {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #e64a19;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+}
+.sub-title {
+    font-size: 1.05rem;
+    color: #1a237e;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+/* --- Golden Scratch Container Frame --- */
+.card-outer-border {
     position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: linear-gradient(145deg, #2c1f14, #140e09);
-    border: 2px solid rgba(255, 160, 0, 0.25);
+    background: linear-gradient(135deg, #ffa000 0%, #ff6f00 100%);
     border-radius: 24px;
-    padding: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    box-shadow: inset 0 2px 6px rgba(255,255,255,0.4), 0 8px 20px rgba(213,0,0,0.15);
 }
-.scratch-card {
+
+/* Top Warning Script Layer if Scratched Before */
+.scratched-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d50000;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 50px;
+    z-index: 10;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.scratch-card-box {
     position: relative;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1.45 / 1; /* Match realistic rectangle aspect ratios */
     border-radius: 16px;
     overflow: hidden;
+    background: #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-.reward-layer {
+
+/* --- Hidden Inside Reward Section --- */
+.reward-surface {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #110d08;
+    background: #ffffff;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 24px;
+    z-index: 1;
 }
-.reward-text-sad {
-    color: #a39285;
-    font-size: 1.35rem;
+
+.win-text-container h2 {
+    font-size: 1rem;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.win-text-container .cash-amt {
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: #2e7d32;
+    line-height: 1.1;
+    margin: 2px 0;
+}
+.win-text-container p {
+    font-size: 0.85rem;
+    color: #333;
     font-weight: 600;
 }
-.reward-text-win h3 {
-    color: #ffb300;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
-.reward-text-win .amount {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: linear-gradient(to bottom, #ffffff, #ffd54f);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.tx-box, .saved-tx-box {
-    margin-top: 15px;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 6px 12px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    color: #8c7b6e;
-}
-.tx-box strong, .saved-tx-box strong {
-    color: #ffb300;
-}
+
+/* --- Canvas Surface Graphic Overlay --- */
 #scratch-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 2;
     cursor: pointer;
     touch-action: none;
 }
-.status-screen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #17110b;
-    border-radius: 24px;
+
+/* --- Bottom Announcement Banner --- */
+.promo-banner {
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 800;
+    padding: 10px 5px 2px 5px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+/* --- Instructions Section --- */
+.how-to-play-box {
+    border: 2px dashed #ffe082;
+    border-radius: 16px;
+    padding: 15px;
+    position: relative;
     display: flex;
     flex-direction: column;
+    gap: 8px;
+    margin-top: 5px;
+}
+.btn-orange {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, #ff6f00, #e65100);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 3px 16px;
+    border-radius: 50px;
+}
+.instruction-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: #37474f;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 15%;
+}
+.instruction-row .icon {
+    font-size: 1.1rem;
+}
+
+/* --- Transaction ID Field Box --- */
+.tx-container {
+    background: #fff3e0;
+    border-radius: 14px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+.tx-header-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #e65100;
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.5px;
+}
+.tx-value {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #d84315;
+    letter-spacing: 0.2px;
+}
+
+/* --- Footer Decor --- */
+.footer-greeting {
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    gap: 8px;
+    font-size: 1.2rem;
 }
-.status-icon { font-size: 3.5rem; margin-bottom: 15px; }
-.status-screen h2 { color: #ff5252; margin-bottom: 8px; }
-.hidden { display: none !important; }
-.toast {
+.luck-text {
+    font-family: 'Poppins', cursive;
+    font-weight: 800;
+    font-style: italic;
+    color: #ff6f00;
+    font-size: 1.5rem;
+}
+
+/* --- System Alerts (Toast) --- */
+.toast-popup {
     position: fixed;
-    bottom: 30px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    background: rgba(255, 160, 0, 0.95);
-    color: #000000;
-    padding: 12px 24px;
-    border-radius: 50px;
+    background: #323232;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 0.9rem;
     font-weight: 600;
-    transition: transform 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 99;
+    white-space: nowrap;
 }
-.toast.show { transform: translateX(-50%) translateY(0); }
+.toast-popup.show {
+    transform: translateX(-50%) translateY(0);
+}
+
 #confetti-canvas {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     pointer-events: none;
+    z-index: 90;
 }
-.footer p { font-size: 0.8rem; color: #ffb300; opacity: 0.7; }
+
+.hidden { display: none !important; }
