@@ -4,46 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ZEARO AGENCY - Scratch & Win</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="voucher-container">
+        
+        <div class="decor-stars-left">⭐<br>⭐</div>
+        <div class="decor-ribbon-right">🎉<br>✨</div>
+
         <header class="header">
-            <h1>🎉 ZEARO AGENCY</h1>
-            <p>Thank You For Recharging ❤️</p>
+            <h1 class="brand-title">ZEARO AGENCY</h1>
+            <p class="sub-title">Thank You For Recharging ❤️</p>
         </header>
 
-        <div class="card-container">
-            <div id="already-used-screen" class="status-screen hidden">
-                <div class="status-icon">❌</div>
-                <h2>Scratch Card Already Used</h2>
-                <p>Aap is browser me pehle hi scratch kar chuke hain.</p>
-                <div class="saved-tx-box">
-                    <span>Transaction ID:</span>
-                    <strong id="saved-tx-id">-</strong>
-                </div>
+        <div class="card-outer-border">
+            
+            <div id="already-scratched-badge" class="scratched-badge hidden">
+                SCRATCH CARD ALREADY SCRATCHED
             </div>
 
-            <div id="scratch-card-frame" class="scratch-card">
-                <div class="reward-layer">
-                    <div id="reward-output"></div>
-                    <div class="tx-box">
-                        <span>TXID:</span> <strong id="tx-id-display"></strong>
-                    </div>
+            <div class="scratch-card-box">
+                <div class="reward-surface">
+                    <div id="reward-display">
+                        </div>
                 </div>
                 <canvas id="scratch-canvas"></canvas>
             </div>
+
+            <div class="promo-banner">
+                RECHARGE JARE AND 1 RS - 10000 KE CASH BACK WIN KARE
+            </div>
         </div>
 
-        <footer class="footer">
-            <p>Secure WhatsApp Reward Link</p>
-            <small>© 2026 Zearo Agency. All rights reserved.</small>
-        </footer>
+        <div class="how-to-play-box">
+            <span class="btn-orange">HOW TO PLAY</span>
+            <div class="instruction-row">
+                <span class="icon">👆</span> <span>Scratch the card above</span>
+            </div>
+            <div class="instruction-row">
+                <span class="icon">🎁</span> <span>Win exciting rewards</span>
+            </div>
+        </div>
+
+        <div class="tx-container">
+            <div class="tx-header-row">
+                <span class="tx-icon">📋</span>
+                <span class="tx-title">TRANSACTION ID</span>
+            </div>
+            <div id="tx-id-string" class="tx-value">582341451214MR20260524</div>
+        </div>
+
+        <div class="footer-greeting">
+            <span>✨</span> <span class="luck-text">Good Luck!</span> <span>✨</span>
+        </div>
+
     </div>
 
-    <div id="nudge-toast" class="toast">Are you scratching your scratch card? 😅</div>
+    <div id="scratch-toast" class="toast-popup">Are you scratching your scratch card? 😅</div>
+    
     <canvas id="confetti-canvas"></canvas>
 
     <script src="script.js"></script>
